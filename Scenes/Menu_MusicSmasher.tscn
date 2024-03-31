@@ -1,0 +1,190 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/super-smash/super_smash_4_1_by_pokemon_diamond-d7zxu6d.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/sky_2.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Menu_MusicSmasher.gd" type="Script" id=3]
+[ext_resource path="res://assets/Players/paper_background.png" type="Texture" id=4]
+[ext_resource path="res://assets/Players/pianist_on_cloud.png" type="Texture" id=5]
+[ext_resource path="res://assets/Players/pianist_on_cloud_3.png" type="Texture" id=6]
+[ext_resource path="res://assets/Players/pianist_on_cloud_2.png" type="Texture" id=7]
+[ext_resource path="res://assets/Players/pianist_on_cloud_5.png" type="Texture" id=8]
+[ext_resource path="res://assets/Players/pianist_on_cloud_4.png" type="Texture" id=9]
+[ext_resource path="res://assets/Players/Musical_notes_no-font_green.png" type="Texture" id=10]
+[ext_resource path="res://assets/Players/Musical_notes_no-font_yellow.png" type="Texture" id=11]
+[ext_resource path="res://assets/Players/Musical_notes_no-font_pink.png" type="Texture" id=12]
+[ext_resource path="res://assets/Players/Musical_notes_no-font_blue.png" type="Texture" id=13]
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 2
+emission_box_extents = Vector3( 2000, -50, 1 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, -6500, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 1.0
+angular_velocity = -13.95
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "flying_pianist",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 512, 512 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 512, 512 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 512, 512 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 512, 512 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 512, 512 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 512, 512 )
+
+[node name="Menu_MusicSmasher" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 448, 616 )
+scale = Vector2( 0.2, 0.2 )
+amount = 2
+speed_scale = 0.2
+process_material = SubResource( 10 )
+texture = ExtResource( 13 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+position = Vector2( 728, 616 )
+scale = Vector2( 0.2, 0.2 )
+amount = 2
+speed_scale = 0.2
+process_material = SubResource( 10 )
+texture = ExtResource( 10 )
+
+[node name="Particles2D3" type="Particles2D" parent="."]
+position = Vector2( 616, 616 )
+scale = Vector2( 0.2, 0.2 )
+amount = 2
+speed_scale = 0.2
+process_material = SubResource( 10 )
+texture = ExtResource( 12 )
+
+[node name="Particles2D4" type="Particles2D" parent="."]
+position = Vector2( 312, 616 )
+scale = Vector2( 0.2, 0.2 )
+amount = 2
+speed_scale = 0.2
+process_material = SubResource( 10 )
+texture = ExtResource( 11 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 512, 88 )
+scale = Vector2( 0.207707, 0.195399 )
+frames = SubResource( 3 )
+animation = "flying_pianist"
+frame = 3
+playing = true
+
+[node name="Titre_du_jeu" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -251.0
+margin_top = 96.0
+margin_right = 251.0
+margin_bottom = 160.0
+custom_fonts/font = SubResource( 1 )
+text = "MusicSmasher"
+align = 1
+valign = 1
+
+[node name="Nouvelle_partie" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -52.0
+margin_right = 128.0
+margin_bottom = 12.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.0901961, 0.0588235, 0.615686, 1 )
+custom_colors/font_color_pressed = Color( 0.0588235, 0.0705882, 0.356863, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Nouvelle Partie"
+
+[node name="Parametres" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = 43.0
+margin_right = 128.0
+margin_bottom = 108.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.0901961, 0.0588235, 0.615686, 1 )
+custom_colors/font_color_pressed = Color( 0.0588235, 0.0705882, 0.356863, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+text = "Parametres"
+
+[node name="Sortir" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = 140.0
+margin_right = 128.0
+margin_bottom = 205.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.0901961, 0.0588235, 0.615686, 1 )
+custom_colors/font_color_pressed = Color( 0.0588235, 0.0705882, 0.356863, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+text = "Sortir"
+
+[connection signal="pressed" from="Nouvelle_partie" to="." method="_on_Nouvelle_partie_pressed"]
+[connection signal="pressed" from="Parametres" to="." method="_on_Parametres_pressed"]
+[connection signal="pressed" from="Sortir" to="." method="_on_Sortir_pressed"]
